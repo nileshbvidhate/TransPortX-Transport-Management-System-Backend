@@ -1,6 +1,5 @@
 package com.nil.transportx.entity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -36,7 +35,7 @@ public class Address {
 	@NotBlank(message = "City is required...")
 	private String city;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "subdist_id", nullable = false, foreignKey = @ForeignKey(name = "subdist_id") )
 	private SubDistrict subDistrict;
 }
