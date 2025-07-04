@@ -99,7 +99,7 @@ public class SubDistrictServiceImpl implements SubDistrictService {
 		} catch (TransactionSystemException e) {
 			throw new InvalidDataException("Validation failed: " + e.getMostSpecificCause().getMessage());
 		} catch (Exception e) {
-			throw new InvalidDataException("An unexpected error occurred while saving SubDistrict: " + e.getMessage());
+			throw new DatabaseOperationException("An unexpected error occurred while saving SubDistrict: " + e.getMessage());
 		}
 	}
 

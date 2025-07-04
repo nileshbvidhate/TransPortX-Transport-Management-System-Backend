@@ -36,7 +36,7 @@ public class TransportOffice {
 	@NotBlank(message = "Office Name is required...")
 	private String officeName;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id", nullable = false, unique = true, foreignKey = @ForeignKey(name = "address_id"))
 	private Address address;
 	

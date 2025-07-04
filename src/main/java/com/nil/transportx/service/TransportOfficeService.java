@@ -2,31 +2,15 @@ package com.nil.transportx.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import com.nil.transportx.requestdto.TransportOfficeRequestDTO;
+import com.nil.transportx.responsedto.TransportOfficeResponseDTO;
 
-import com.nil.transportx.entity.TransportOffice;
-import com.nil.transportx.repository.TransportOfficeRepository;
+public interface TransportOfficeService {
 
-@Service
-public class TransportOfficeService {
-	
-	private TransportOfficeRepository officeRepo;
-	
-	public TransportOfficeService(TransportOfficeRepository officeRepo) {
-		this.officeRepo = officeRepo;
-	}
+	TransportOfficeResponseDTO addOffice(TransportOfficeRequestDTO officeRequestDTO);
+	List<TransportOfficeResponseDTO> getAllOffices();
+	TransportOfficeResponseDTO getOfficeById(Integer officeId);
+	TransportOfficeResponseDTO updateOffice(Integer officeId, TransportOfficeRequestDTO officeRequestDTO);
+	void deleteOffice(Integer officeId);
 
-	public List<TransportOffice> getAllOffices() {
-		
-		 List<TransportOffice> offices = officeRepo.findAll();
-		
-		return offices;
-	}
-
-	public TransportOffice addOffice(TransportOffice office) {
-		TransportOffice savedOffice = officeRepo.save(office);
-		
-		return savedOffice;
-	}
-	
 }
